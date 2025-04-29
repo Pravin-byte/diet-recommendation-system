@@ -1,15 +1,17 @@
 {
-  "name": "full-stack-app",
+  "name": "diet-recommendation-system",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently \"npm run start --prefix client\" \"npm run start --prefix server\"",
     "install": "npm install --prefix client && npm install --prefix server",
+    "build": "npm run build --prefix client",
+    "start": "npm run build && node server/index.js",
+    "preinstall": "npx npm-force-resolutions",
     "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\""
   },
   "dependencies": {
     "concurrently": "^7.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "npm-force-resolutions": "^1.0.0"
   }
 }
