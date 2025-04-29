@@ -2,16 +2,18 @@
   "name": "diet-recommendation-system",
   "version": "1.0.0",
   "scripts": {
-    "install": "npm install --prefix client && npm install --prefix server",
+    "install": "npx npm-force-resolutions && npm install --prefix client && npm install --prefix server",
     "build": "npm run build --prefix client",
     "start": "npm run build && node server/index.js",
-    "preinstall": "npx npm-force-resolutions",
-    "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\""
+    "preinstall": "npx npm-force-resolutions"
   },
   "dependencies": {
     "concurrently": "^7.0.0"
   },
   "devDependencies": {
-    "npm-force-resolutions": "^1.0.0"
+    "npm-force-resolutions": "^0.0.10"
+  },
+  "resolutions": {
+    "path-to-regexp": "6.2.1"
   }
 }
