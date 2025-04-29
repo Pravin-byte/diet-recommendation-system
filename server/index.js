@@ -39,6 +39,17 @@ app.post('/api/getMeals', async (req, res) => {
   }
 });
 
+const path = require('path');
+
+if (process.env.NODE_ENV === 'production') {
+  // Serve static files from the React app
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  // Handle all routes with index.html from React
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
+}
 
 const PORT=process.env.PORT || 3001
 app.listen(PORT ,()=>{
