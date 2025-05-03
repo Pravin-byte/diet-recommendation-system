@@ -25,19 +25,21 @@ const DietForm = () => {
 
   const getMeals = async (params, planName) => {
     try {
-      const { data } = await axios.post('http://localhost:3001/api/getMeals', params);
+      // Replace with your backend URL
+      const { data } = await axios.post('https://diet-recommendation-system-law0.onrender.com/api/getMeals', params);
       setResult(data);
       setSelectedPlanType(planName); // set plan name here too
     } catch (error) {
       console.error('Error fetching data:', error.message || error);
     }
-  };
+};
 
 const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await axios.post('http://localhost:3001/api/recommend', {
+      // Replace with your backend URL
+      const { data } = await axios.post('https://diet-recommendation-system-law0.onrender.com/api/recommend', {
         ...formData,
       });
 
@@ -47,6 +49,7 @@ const handleSubmit = async (e) => {
     }
     setLoading(false);
 };
+
 
 
   return (
